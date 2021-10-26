@@ -3,21 +3,21 @@
   "minecraft:entity": {
     "description": {
       "identifier": "minecraft:armor_stand",
-      "is_spawnable": false,
+      "is_spawnable": true,
       "is_summonable": true,
       "is_experimental": false
     },
     "components": {
       "minecraft:type_family": {
-        "family": [ "armor_stand", "inanimate", "mob" ]
+        "family": [ "armor_stand", "mob" ]
       },
       "minecraft:collision_box": {
         "width": 0.5,
         "height": 1.975
       },
       "minecraft:health": {
-        "value": 20,
-        "max": 20
+        "value": 34,
+        "max": 34
       },
       "minecraft:hurt_on_condition": {
         "damage_conditions": [
@@ -40,7 +40,7 @@
         "value": 0.4
       },
       "minecraft:behavior.random_stroll": {
-        "priority": 3,
+        "priority": 5,
         "speed_multiplier": 1.0
       },
       "minecraft:persistent": {
