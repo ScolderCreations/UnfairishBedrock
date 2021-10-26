@@ -8,11 +8,12 @@
     "tags": [ "crafting_table" ],
     "pattern": [
       "#P#",
-      "###"
+      "###",
+      "PPP"
     ],
     "key": {
       "P": {
-        "item": "minecraft:wooden_shovel"
+        "item": "minecraft:emerald"
       },
       "#": {
         "item": "minecraft:planks",
