@@ -43,6 +43,25 @@
         "priority": 5,
         "speed_multiplier": 1.0
       },
+      "minecraft:behavior.nearest_attackable_target": {
+        "priority": 1,
+        "entity_types": [
+          {
+            "filters": { "other_with_families": "player" },
+            "max_dist": 16
+          }
+        ], 
+        "must_see": true
+      },
+      "minecraft:target_nearby_sensor": {
+        "inside_range": 3.0,
+        "outside_range": 7.0,
+        "on_inside_range": {
+          "event": "minecraft:start_exploding",
+          "target": "self"
+        },
+        "on_outside_range": {}
+      },
       "minecraft:persistent": {
       },
       "minecraft:physics": {
