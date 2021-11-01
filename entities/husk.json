@@ -128,8 +128,6 @@
       },
       "minecraft:nameable": {
       },
-
-      // Zombie_husk Components
       "minecraft:type_family": {
         "family": [ "husk", "zombie", "undead", "monster", "mob" ]
       },
@@ -285,13 +283,13 @@
             "item": "minecraft:netherite_chestplate",
             "want_amount": 1,
             "surplus_amount": 1,
-            "priority": 0
+            "priority": 10
           },
           {
             "item": "minecraft:diamond_chestplate",
             "want_amount": 1,
             "surplus_amount": 1,
-            "priority": 1
+            "priority": 7
           },
           {
             "item": "minecraft:iron_chestplate",
@@ -321,19 +319,19 @@
             "item": "minecraft:netherite_leggings",
             "want_amount": 1,
             "surplus_amount": 1,
-            "priority": 0
+            "priority": 9
           },
           {
             "item": "minecraft:diamond_leggings",
             "want_amount": 1,
             "surplus_amount": 1,
-            "priority": 1
+            "priority": 8
           },
           {
             "item": "minecraft:iron_leggings",
             "want_amount": 1,
             "surplus_amount": 1,
-            "priority": 2
+            "priority": 6
           },
           {
             "item": "minecraft:chainmail_leggings",
@@ -357,25 +355,25 @@
             "item": "minecraft:netherite_boots",
             "want_amount": 1,
             "surplus_amount": 1,
-            "priority": 0
+            "priority": 9
           },
           {
             "item": "minecraft:diamond_boots",
             "want_amount": 1,
             "surplus_amount": 1,
-            "priority": 1
+            "priority": 9
           },
           {
             "item": "minecraft:iron_boots",
             "want_amount": 1,
             "surplus_amount": 1,
-            "priority": 2
+            "priority": 8
           },
           {
             "item": "minecraft:chainmail_boots",
             "want_amount": 1,
             "surplus_amount": 1,
-            "priority": 3
+            "priority": 6
           },
           {
             "item": "minecraft:golden_boots",
@@ -407,12 +405,12 @@
       "minecraft:despawn": {
         "despawn_from_distance": {}
       },
-      // Zombie_husk Behaviors
+      
       "minecraft:behavior.equip_item": {
         "priority": 2
       },
       "minecraft:behavior.melee_attack": {
-        "priority": 3
+        "priority": 4
       },
       "minecraft:behavior.stomp_turtle_egg": {
         "priority": 4,
