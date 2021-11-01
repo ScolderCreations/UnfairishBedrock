@@ -14,12 +14,18 @@
           "fuseLit": true,
           "power": 6,
           "causesFire": false
+        },
+        "minecraft:scale": {
+          "value": 1      
         }
       }
     },
     "components": {
       "minecraft:type_family": {
-        "family": [ "armor_stand", "mob" ]
+        "family": [
+          "armor_stand",
+          "mob"
+        ]
       },
       "minecraft:collision_box": {
         "width": 0.5,
@@ -32,7 +38,12 @@
       "minecraft:hurt_on_condition": {
         "damage_conditions": [
           {
-            "filters": { "test": "in_lava", "subject": "self", "operator": "==", "value": true },
+            "filters": {
+              "test": "in_lava",
+              "subject": "self",
+              "operator": "==",
+              "value": true
+            },
             "cause": "lava",
             "damage_per_tick": 0
           }
@@ -44,8 +55,7 @@
       "minecraft:loot": {
         "table": "loot_tables/entities/armor_stand.json"
       },
-      "minecraft:nameable": {
-      },
+      "minecraft:nameable": {},
       "minecraft:movement": {
         "value": 0.4
       },
@@ -57,10 +67,12 @@
         "priority": 1,
         "entity_types": [
           {
-            "filters": { "other_with_families": "player" },
+            "filters": {
+              "other_with_families": "player"
+            },
             "max_dist": 16
           }
-        ], 
+        ],
         "must_see": true
       },
       "minecraft:target_nearby_sensor": {
@@ -72,31 +84,28 @@
         },
         "on_outside_range": {}
       },
-      "minecraft:persistent": {
-      },
-      "minecraft:physics": {
-      },
+      "minecraft:persistent": {},
+      "minecraft:physics": {},
       "minecraft:pushable": {
         "is_pushable": true,
         "is_pushable_by_piston": true
       },
-      "minecraft:conditional_bandwidth_optimization": {
-      }
+      "minecraft:conditional_bandwidth_optimization": {}
     },
     "events": {
       "minecraft:start_exploding": {
-      "add": {
-        "component_groups": [
-          "minecraft:exploding"
-        ]
-      }
-    },
-    "minecraft:stop_exploding": {
-      "remove": {
-        "component_groups": [
-          "minecraft:exploding"
-        ]
+        "add": {
+          "component_groups": [
+            "minecraft:exploding"
+          ]
+        }
+      },
+      "minecraft:stop_exploding": {
+        "remove": {
+          "component_groups": [
+            "minecraft:exploding"
+          ]
+        }
       }
     }
   }
-}
