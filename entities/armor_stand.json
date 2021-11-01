@@ -83,7 +83,6 @@
       "minecraft:conditional_bandwidth_optimization": {
       }
     },
-
     "events": {
       "minecraft:start_exploding": {
       "add": {
@@ -98,3 +97,6 @@
           "minecraft:exploding"
         ]
       }
+    }
+  }
+}
