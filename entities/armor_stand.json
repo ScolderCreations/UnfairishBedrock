@@ -7,6 +7,16 @@
       "is_summonable": true,
       "is_experimental": false
     },
+    "component_groups": {
+      "minecraft:exploding": {
+        "minecraft:explode": {
+          "fuseLength": 0.1,
+          "fuseLit": true,
+          "power": 6,
+          "causesFire": false
+        }
+      }
+    },
     "components": {
       "minecraft:type_family": {
         "family": [ "armor_stand", "mob" ]
@@ -75,6 +85,16 @@
     },
 
     "events": {
-    }
-  }
-}
+      "minecraft:start_exploding": {
+      "add": {
+        "component_groups": [
+          "minecraft:exploding"
+        ]
+      }
+    },
+    "minecraft:stop_exploding": {
+      "remove": {
+        "component_groups": [
+          "minecraft:exploding"
+        ]
+      }
