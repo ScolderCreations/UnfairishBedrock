@@ -1405,6 +1405,8 @@
       "minecraft:type_family": {
         "family": ["villager", "mob"]
       },
+      "minecraft:rail_movement":{
+      }
       "minecraft:mark_variant": {
         "value": 0 // Villagers have the Plains biome skin by default
       },
