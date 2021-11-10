@@ -22,10 +22,10 @@
           },
           "mob_effect": {
             "effect": "levitation",
-            "durationeasy": 200,
-            "durationnormal": 200,
+            "durationeasy": 20,
+            "durationnormal": 100,
             "durationhard": 200,
-            "amplifier": 1
+            "amplifier": 9
           },
           "remove_on_hit": {
           },
@@ -37,7 +37,7 @@
         "hit_sound": "bullet.hit",
         "destroyOnHurt": true,
         "crit_particle_on_hurt": true,
-        "power": 1.6,
+        "power": 5.6,
         "gravity": 0.05,
         "uncertainty_base": 16,
         "uncertainty_multiplier": 4,
@@ -46,7 +46,7 @@
         "homing": true
       },
       "minecraft:physics": {
-        "has_collision": false
+        "has_collision": true
       },
       "minecraft:conditional_bandwidth_optimization": {
         "default_values": {
