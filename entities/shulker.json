@@ -96,20 +96,18 @@
     },
 
     "components": {
-      "minecraft:is_hidden_when_invisible": {
-      },
+      "minecraft:is_hidden_when_invisible": {},
       "minecraft:experience_reward": {
-        "on_death": "query.last_hit_by_player ? 5 : 0"
+        "on_death": "query.last_hit_by_player ? 5 : 99"
       },
       "minecraft:type_family": {
-        "family": [ "shulker", "monster", "mob" ]
+        "family": ["shulker", "monster", "mob"]
       },
       "minecraft:breathable": {
         "total_supply": 15,
         "suffocate_time": 0
       },
-      "minecraft:nameable": {
-      },
+      "minecraft:nameable": {},
       "minecraft:conditional_bandwidth_optimization": {
         "default_values": {
           "max_optimized_distance": 80.0,
@@ -124,15 +122,20 @@
       "minecraft:hurt_on_condition": {
         "damage_conditions": [
           {
-            "filters": { "test": "in_lava", "subject": "self", "operator": "==", "value": true },
+            "filters": {
+              "test": "in_lava",
+              "subject": "self",
+              "operator": "==",
+              "value": true
+            },
             "cause": "lava",
-            "damage_per_tick": 4
+            "damage_per_tick": 1
           }
         ]
       },
       "minecraft:movement": {
-        "value": 0.0,
-        "max": 0.0
+        "value": 1.0,
+        "max": 9.0
       },
       "minecraft:loot": {
         "table": "loot_tables/entities/shulker.json"
@@ -160,9 +163,9 @@
         "priority": 8
       },
       "minecraft:behavior.ranged_attack": {
-        "attack_interval_min": 1,
-        "attack_interval_max": 3,
-        "attack_radius": 15
+        "attack_interval_min": 0.1,
+        "attack_interval_max": 2,
+        "attack_radius": 50
       },
       "minecraft:behavior.hurt_by_target": {
         "priority": 2
@@ -170,30 +173,50 @@
       "minecraft:behavior.nearest_attackable_target": {
         "priority": 3,
         "entity_types": {
-          "filters": { "test" :  "is_family", "subject" : "other", "value" :  "player"},
+          "filters": {
+            "test": "is_family",
+            "subject": "other",
+            "value": "player"
+          },
           "max_dist": 16
         },
         "must_see": true
       },
-      "minecraft:navigation.walk": {
-      },
-      "minecraft:movement.basic": {
-      },
+      "minecraft:navigation.walk": {},
+      "minecraft:movement.basic": {},
       "minecraft:interact": {
         "interactions": [
           {
             "on_interact": {
               "filters": {
-                  "all_of": [
-                    {
-                      "any_of": [
-                        { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "dye:0"},
-                        { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "dye:16"}
-                      ]
-                    },
-                    { "test" :  "is_family", "subject" : "other", "value" :  "player"},
-                    { "test" :  "has_ability","subject" : "other", "value" :  "instabuild"}
-                  ]
+                "all_of": [
+                  {
+                    "any_of": [
+                      {
+                        "test": "has_equipment",
+                        "subject": "other",
+                        "domain": "hand",
+                        "value": "dye:0"
+                      },
+                      {
+                        "test": "has_equipment",
+                        "subject": "other",
+                        "domain": "hand",
+                        "value": "dye:16"
+                      }
+                    ]
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "player"
+                  },
+                  {
+                    "test": "has_ability",
+                    "subject": "other",
+                    "value": "instabuild"
+                  }
+                ]
               },
               "event": "minecraft:turn_black"
             },
@@ -202,11 +225,24 @@
           {
             "on_interact": {
               "filters": {
-                  "all_of": [
-                    { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "dye:8"},
-                    { "test" :  "is_family", "subject" : "other", "value" :  "player"},
-                    { "test" :  "has_ability","subject" : "other", "value" :  "instabuild"}
-                  ]
+                "all_of": [
+                  {
+                    "test": "has_equipment",
+                    "subject": "other",
+                    "domain": "hand",
+                    "value": "dye:8"
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "player"
+                  },
+                  {
+                    "test": "has_ability",
+                    "subject": "other",
+                    "value": "instabuild"
+                  }
+                ]
               },
               "event": "minecraft:turn_gray"
             },
@@ -215,11 +251,24 @@
           {
             "on_interact": {
               "filters": {
-                  "all_of": [
-                    { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "dye:7"},
-                    { "test" :  "is_family", "subject" : "other", "value" :  "player"},
-                    { "test" :  "has_ability","subject" : "other", "value" :  "instabuild"}
-                  ]
+                "all_of": [
+                  {
+                    "test": "has_equipment",
+                    "subject": "other",
+                    "domain": "hand",
+                    "value": "dye:7"
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "player"
+                  },
+                  {
+                    "test": "has_ability",
+                    "subject": "other",
+                    "value": "instabuild"
+                  }
+                ]
               },
               "event": "minecraft:turn_silver"
             },
@@ -228,16 +277,34 @@
           {
             "on_interact": {
               "filters": {
-                  "all_of": [
-                    {
-                      "any_of": [
-                        { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "dye:15"},
-                        { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "dye:19"}
-                      ]
-                    },
-                    { "test" :  "is_family", "subject" : "other", "value" :  "player"},
-                    { "test" :  "has_ability","subject" : "other", "value" :  "instabuild"}
-                  ]
+                "all_of": [
+                  {
+                    "any_of": [
+                      {
+                        "test": "has_equipment",
+                        "subject": "other",
+                        "domain": "hand",
+                        "value": "dye:15"
+                      },
+                      {
+                        "test": "has_equipment",
+                        "subject": "other",
+                        "domain": "hand",
+                        "value": "dye:19"
+                      }
+                    ]
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "player"
+                  },
+                  {
+                    "test": "has_ability",
+                    "subject": "other",
+                    "value": "instabuild"
+                  }
+                ]
               },
               "event": "minecraft:turn_white"
             },
@@ -246,11 +313,24 @@
           {
             "on_interact": {
               "filters": {
-                  "all_of": [
-                    { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "dye:12"},
-                    { "test" :  "is_family", "subject" : "other", "value" :  "player"},
-                    { "test" :  "has_ability","subject" : "other", "value" :  "instabuild"}
-                  ]
+                "all_of": [
+                  {
+                    "test": "has_equipment",
+                    "subject": "other",
+                    "domain": "hand",
+                    "value": "dye:12"
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "player"
+                  },
+                  {
+                    "test": "has_ability",
+                    "subject": "other",
+                    "value": "instabuild"
+                  }
+                ]
               },
               "event": "minecraft:turn_light_blue"
             },
@@ -259,11 +339,24 @@
           {
             "on_interact": {
               "filters": {
-                  "all_of": [
-                    { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "dye:14"},
-                    { "test" :  "is_family", "subject" : "other", "value" :  "player"},
-                    { "test" :  "has_ability","subject" : "other", "value" :  "instabuild"}
-                  ]
+                "all_of": [
+                  {
+                    "test": "has_equipment",
+                    "subject": "other",
+                    "domain": "hand",
+                    "value": "dye:14"
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "player"
+                  },
+                  {
+                    "test": "has_ability",
+                    "subject": "other",
+                    "value": "instabuild"
+                  }
+                ]
               },
               "event": "minecraft:turn_orange"
             },
@@ -272,11 +365,24 @@
           {
             "on_interact": {
               "filters": {
-                  "all_of": [
-                    { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "dye:1"},
-                    { "test" :  "is_family", "subject" : "other", "value" :  "player"},
-                    { "test" :  "has_ability","subject" : "other", "value" :  "instabuild"}
-                  ]
+                "all_of": [
+                  {
+                    "test": "has_equipment",
+                    "subject": "other",
+                    "domain": "hand",
+                    "value": "dye:1"
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "player"
+                  },
+                  {
+                    "test": "has_ability",
+                    "subject": "other",
+                    "value": "instabuild"
+                  }
+                ]
               },
               "event": "minecraft:turn_red"
             },
@@ -285,16 +391,34 @@
           {
             "on_interact": {
               "filters": {
-                  "all_of": [
-                    {
-                      "any_of": [
-                        { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "dye:4"},
-                        { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "dye:18"}
-                      ]
-                    },
-                    { "test" :  "is_family", "subject" : "other", "value" :  "player"},
-                    { "test" :  "has_ability","subject" : "other", "value" :  "instabuild"}
-                  ]
+                "all_of": [
+                  {
+                    "any_of": [
+                      {
+                        "test": "has_equipment",
+                        "subject": "other",
+                        "domain": "hand",
+                        "value": "dye:4"
+                      },
+                      {
+                        "test": "has_equipment",
+                        "subject": "other",
+                        "domain": "hand",
+                        "value": "dye:18"
+                      }
+                    ]
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "player"
+                  },
+                  {
+                    "test": "has_ability",
+                    "subject": "other",
+                    "value": "instabuild"
+                  }
+                ]
               },
               "event": "minecraft:turn_blue"
             },
@@ -303,11 +427,24 @@
           {
             "on_interact": {
               "filters": {
-                  "all_of": [
-                    { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "dye:5"},
-                    { "test" :  "is_family", "subject" : "other", "value" :  "player"},
-                    { "test" :  "has_ability","subject" : "other", "value" :  "instabuild"}
-                  ]
+                "all_of": [
+                  {
+                    "test": "has_equipment",
+                    "subject": "other",
+                    "domain": "hand",
+                    "value": "dye:5"
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "player"
+                  },
+                  {
+                    "test": "has_ability",
+                    "subject": "other",
+                    "value": "instabuild"
+                  }
+                ]
               },
               "event": "minecraft:turn_purple"
             },
@@ -316,11 +453,24 @@
           {
             "on_interact": {
               "filters": {
-                  "all_of": [
-                    { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "dye:13"},
-                    { "test" :  "is_family", "subject" : "other", "value" :  "player"},
-                    { "test" :  "has_ability","subject" : "other", "value" :  "instabuild"}
-                  ]
+                "all_of": [
+                  {
+                    "test": "has_equipment",
+                    "subject": "other",
+                    "domain": "hand",
+                    "value": "dye:13"
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "player"
+                  },
+                  {
+                    "test": "has_ability",
+                    "subject": "other",
+                    "value": "instabuild"
+                  }
+                ]
               },
               "event": "minecraft:turn_magenta"
             },
@@ -329,11 +479,24 @@
           {
             "on_interact": {
               "filters": {
-                  "all_of": [
-                    { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "dye:9"},
-                    { "test" :  "is_family", "subject" : "other", "value" :  "player"},
-                    { "test" :  "has_ability","subject" : "other", "value" :  "instabuild"}
-                  ]
+                "all_of": [
+                  {
+                    "test": "has_equipment",
+                    "subject": "other",
+                    "domain": "hand",
+                    "value": "dye:9"
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "player"
+                  },
+                  {
+                    "test": "has_ability",
+                    "subject": "other",
+                    "value": "instabuild"
+                  }
+                ]
               },
               "event": "minecraft:turn_pink"
             },
@@ -342,16 +505,34 @@
           {
             "on_interact": {
               "filters": {
-                  "all_of": [
-                    {
-                      "any_of": [
-                        { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "dye:3"},
-                        { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "dye:17"}
-                      ]
-                    },
-                    { "test" :  "is_family", "subject" : "other", "value" :  "player"},
-                    { "test" :  "has_ability","subject" : "other", "value" :  "instabuild"}
-                  ]
+                "all_of": [
+                  {
+                    "any_of": [
+                      {
+                        "test": "has_equipment",
+                        "subject": "other",
+                        "domain": "hand",
+                        "value": "dye:3"
+                      },
+                      {
+                        "test": "has_equipment",
+                        "subject": "other",
+                        "domain": "hand",
+                        "value": "dye:17"
+                      }
+                    ]
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "player"
+                  },
+                  {
+                    "test": "has_ability",
+                    "subject": "other",
+                    "value": "instabuild"
+                  }
+                ]
               },
               "event": "minecraft:turn_brown"
             },
@@ -360,11 +541,24 @@
           {
             "on_interact": {
               "filters": {
-                  "all_of": [
-                    { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "dye:11"},
-                    { "test" :  "is_family", "subject" : "other", "value" :  "player"},
-                    { "test" :  "has_ability","subject" : "other", "value" :  "instabuild"}
-                  ]
+                "all_of": [
+                  {
+                    "test": "has_equipment",
+                    "subject": "other",
+                    "domain": "hand",
+                    "value": "dye:11"
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "player"
+                  },
+                  {
+                    "test": "has_ability",
+                    "subject": "other",
+                    "value": "instabuild"
+                  }
+                ]
               },
               "event": "minecraft:turn_yellow"
             },
@@ -373,11 +567,24 @@
           {
             "on_interact": {
               "filters": {
-                  "all_of": [
-                    { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "dye:10"},
-                    { "test" :  "is_family", "subject" : "other", "value" :  "player"},
-                    { "test" :  "has_ability","subject" : "other", "value" :  "instabuild"}
-                  ]
+                "all_of": [
+                  {
+                    "test": "has_equipment",
+                    "subject": "other",
+                    "domain": "hand",
+                    "value": "dye:10"
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "player"
+                  },
+                  {
+                    "test": "has_ability",
+                    "subject": "other",
+                    "value": "instabuild"
+                  }
+                ]
               },
               "event": "minecraft:turn_lime"
             },
@@ -386,11 +593,24 @@
           {
             "on_interact": {
               "filters": {
-                  "all_of": [
-                    { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "dye:2"},
-                    { "test" :  "is_family", "subject" : "other", "value" :  "player"},
-                    { "test" :  "has_ability","subject" : "other", "value" :  "instabuild"}
-                  ]
+                "all_of": [
+                  {
+                    "test": "has_equipment",
+                    "subject": "other",
+                    "domain": "hand",
+                    "value": "dye:2"
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "player"
+                  },
+                  {
+                    "test": "has_ability",
+                    "subject": "other",
+                    "value": "instabuild"
+                  }
+                ]
               },
               "event": "minecraft:turn_green"
             },
@@ -399,11 +619,24 @@
           {
             "on_interact": {
               "filters": {
-                  "all_of": [
-                    { "test": "has_equipment", "subject": "other", "domain": "hand", "value": "dye:6"},
-                    { "test" :  "is_family", "subject" : "other", "value" :  "player"},
-                    { "test" :  "has_ability","subject" : "other", "value" :  "instabuild"}
-                  ]
+                "all_of": [
+                  {
+                    "test": "has_equipment",
+                    "subject": "other",
+                    "domain": "hand",
+                    "value": "dye:6"
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "player"
+                  },
+                  {
+                    "test": "has_ability",
+                    "subject": "other",
+                    "value": "instabuild"
+                  }
+                ]
               },
               "event": "minecraft:turn_cyan"
             },
@@ -411,128 +644,93 @@
           }
         ]
       },
-      "minecraft:physics": {
-      }
+      "minecraft:physics": {}
     },
 
     "events": {
       "minecraft:entity_spawned": {
         "add": {
-          "component_groups": [
-            "minecraft:shulker_undyed"
-          ]
+          "component_groups": ["minecraft:shulker_undyed"]
         }
       },
       "minecraft:turn_purple": {
         "add": {
-          "component_groups": [
-            "minecraft:shulker_purple"
-          ]
+          "component_groups": ["minecraft:shulker_purple"]
         }
       },
       "minecraft:turn_black": {
         "add": {
-          "component_groups": [
-            "minecraft:shulker_black"
-          ]
+          "component_groups": ["minecraft:shulker_black"]
         }
       },
       "minecraft:turn_blue": {
         "add": {
-          "component_groups": [
-            "minecraft:shulker_blue"
-          ]
+          "component_groups": ["minecraft:shulker_blue"]
         }
       },
       "minecraft:turn_brown": {
         "add": {
-          "component_groups": [
-            "minecraft:shulker_brown"
-          ]
+          "component_groups": ["minecraft:shulker_brown"]
         }
       },
       "minecraft:turn_cyan": {
         "add": {
-          "component_groups": [
-            "minecraft:shulker_cyan"
-          ]
+          "component_groups": ["minecraft:shulker_cyan"]
         }
       },
       "minecraft:turn_gray": {
         "add": {
-          "component_groups": [
-            "minecraft:shulker_gray"
-          ]
+          "component_groups": ["minecraft:shulker_gray"]
         }
       },
       "minecraft:turn_green": {
         "add": {
-          "component_groups": [
-            "minecraft:shulker_green"
-          ]
+          "component_groups": ["minecraft:shulker_green"]
         }
       },
       "minecraft:turn_light_blue": {
         "add": {
-          "component_groups": [
-            "minecraft:shulker_light_blue"
-          ]
+          "component_groups": ["minecraft:shulker_light_blue"]
         }
       },
       "minecraft:turn_lime": {
         "add": {
-          "component_groups": [
-            "minecraft:shulker_lime"
-          ]
+          "component_groups": ["minecraft:shulker_lime"]
         }
       },
       "minecraft:turn_magenta": {
         "add": {
-          "component_groups": [
-            "minecraft:shulker_magenta"
-          ]
+          "component_groups": ["minecraft:shulker_magenta"]
         }
       },
       "minecraft:turn_orange": {
         "add": {
-          "component_groups": [
-            "minecraft:shulker_orange"
-          ]
+          "component_groups": ["minecraft:shulker_orange"]
         }
       },
       "minecraft:turn_pink": {
         "add": {
-          "component_groups": [
-            "minecraft:shulker_pink"
-          ]
+          "component_groups": ["minecraft:shulker_pink"]
         }
       },
       "minecraft:turn_red": {
         "add": {
-          "component_groups": [
-            "minecraft:shulker_red"
-          ]
+          "component_groups": ["minecraft:shulker_red"]
         }
       },
       "minecraft:turn_silver": {
         "add": {
-          "component_groups": [
-            "minecraft:shulker_silver"
-          ]
+          "component_groups": ["minecraft:shulker_silver"]
         }
       },
       "minecraft:turn_white": {
         "add": {
-          "component_groups": [
-            "minecraft:shulker_white"
-          ]
+          "component_groups": ["minecraft:shulker_white"]
         }
       },
       "minecraft:turn_yellow": {
         "add": {
-          "component_groups": [
-            "minecraft:shulker_yellow"
-          ]
+          "component_groups": ["minecraft:shulker_yellow"]
         }
       }
     }
