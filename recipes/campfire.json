@@ -14,18 +14,18 @@
     ],
     "key": {
       "|": {
-        "item": "minecraft:stick"
+        "item": "minecraft:log:1"
       },
       "#": {
         "item": "minecraft:log"
       },
       "C": {
-        "item": "minecraft:coal"
+        "item": "minecraft:stone"
       }
     },
     "result": {
       "item": "minecraft:campfire"
     },
-    "priority": 1
+    "priority": 3
   }
 }
